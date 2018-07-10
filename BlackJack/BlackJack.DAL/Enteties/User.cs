@@ -10,7 +10,7 @@ namespace BlackJack.DAL.Enteties
     public int? Score { get; set; }
     public PlayerType Type { get; set; }
 
-    public ICollection<Card> Cards { get; set; }
+    public List<Card> Cards { get; set; }
 
     public User()
     {

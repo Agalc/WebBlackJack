@@ -14,9 +14,15 @@ namespace BlackJack.DAL.Repositories
     {
       _context = context;
     }
-
+    
     public IEnumerable<User> GetAll()
     {
+      return _context.Users;
+    }
+
+    public IEnumerable<User> GetAllCards()
+    {
+      
       return _context.Users;
     }
 

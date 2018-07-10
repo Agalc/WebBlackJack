@@ -5,7 +5,7 @@ namespace BlackJack.DAL.Enteties
   public class Round
   {
     public int? Id { set; get; }
-    public string Winner { set; get; }
+    public int? WinnerId { set; get; }
 
     public ICollection<User> Users { set; get; }
     public ICollection<Game> Games { set; get; }

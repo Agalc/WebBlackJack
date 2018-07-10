@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using BlackJack.DAL.Enteties;
 
 namespace BlackJack.Controllers
@@ -15,14 +17,20 @@ namespace BlackJack.Controllers
 
     public ActionResult Index()
     {
-      ViewBag.User = _unitOfWork.Users.GetAll();
+      ViewBag.User = _unitOfWork.Users.GetAll().ToList();
+
       return View();
     }
 
     [HttpGet]
     public ActionResult Hand(int id)
     {
-      ViewBag.UserId = id;
+      //var commentsOfMember = _unitOfWork.Users
+      //  .Where(us => us.Id == id)
+      //  .Select(us => us.Cards)
+      //  .ToList();
+      //ViewBag.UserId = id;
+      ViewBag.Cards = _unitOfWork.Cards.GetAll();
       return View();
     }
 
