@@ -1,19 +1,21 @@
 ﻿using System.Web.Mvc;
-using BlackJack.DAL;
 using BlackJack.DAL.Enteties;
-using BlackJack.DAL.Interfaces;
-using BlackJack.DAL.Repositories;
 
 namespace BlackJack.Controllers
 {
   public class HomeController : Controller
   {
-    private static BjContext _context = new BjContext("Default");
-    private IRepository<User> _userDatabase = new UserRepository(_context);
+    private static readonly string _connectionString = "Default";
+    private readonly UnitOfWork _unitOfWork;
+
+    public HomeController()
+    {
+      _unitOfWork = new UnitOfWork(_connectionString);
+    }
 
     public ActionResult Index()
     {
-      ViewBag.User = _userDatabase.GetAll();
+      ViewBag.User = _unitOfWork.Users.GetAll();
       return View();
     }
 

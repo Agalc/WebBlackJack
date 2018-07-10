@@ -53,7 +53,7 @@
     <Compile Include="Enteties\Round.cs" />
     <Compile Include="Enteties\User.cs" />
     <Compile Include="Enums\Enums.cs" />
-    <Compile Include="Enteties\EntityUnitOfWork.cs" />
+    <Compile Include="Enteties\UnitOfWork.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

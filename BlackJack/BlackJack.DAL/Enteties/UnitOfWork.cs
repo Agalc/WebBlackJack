@@ -4,7 +4,7 @@ using BlackJack.DAL.Repositories;
 
 namespace BlackJack.DAL.Enteties
 {
-  class EntityUnitOfWork : IUnitOfWork
+  public class UnitOfWork : IUnitOfWork
   {
 
     private readonly BjContext _context;
@@ -13,7 +13,7 @@ namespace BlackJack.DAL.Enteties
     private RoundRepository _roundRepository;
     private CardRepository _cardRepository;
 
-    public EntityUnitOfWork(string connectionString)
+    public UnitOfWork(string connectionString)
     {
       _context = new BjContext(connectionString);
     }
