@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using BlackJack.DAL.Interfaces;
 using BlackJack.DAL.Repositories;
 
@@ -8,55 +9,21 @@ namespace BlackJack.DAL.Enteties
   {
 
     private readonly BjContext _context;
-    private UserRepository _userRepository;
-    private GameRepository _gameRepository;
-    private RoundRepository _roundRepository;
-    private CardRepository _cardRepository;
 
     public UnitOfWork(string connectionString)
     {
       _context = new BjContext(connectionString);
+
+      Cards = new CardRepository(_context);
+      Games = new GameRepository(_context);
+      Rounds = new RoundRepository(_context);
+      Users = new UserRepository(_context);
     }
 
-    public IRepository<User> Users
-    {
-      get
-      {
-        if (_userRepository == null)
-          _userRepository = new UserRepository(_context);
-        return _userRepository;
-      }
-    }
-
-    public IRepository<Game> Games
-    {
-      get
-      {
-        if (_gameRepository == null)
-          _gameRepository = new GameRepository(_context);
-        return _gameRepository;
-      }
-    }
-
-    public IRepository<Round> Rounds
-    {
-      get
-      {
-        if (_roundRepository == null)
-          _roundRepository = new RoundRepository(_context);
-        return _roundRepository;
-      }
-    }
-
-    public IRepository<Card> Cards
-    {
-      get
-      {
-        if (_cardRepository == null)
-          _cardRepository = new CardRepository(_context);
-        return _cardRepository;
-      }
-    }
+    public ICardRepository Cards { private set; get; }
+    public IGameRepository Games { private set; get; }
+    public IRoundRepository Rounds { private set; get; }
+    public IUserRepository Users { private set; get; }
 
     public void Save()
     {

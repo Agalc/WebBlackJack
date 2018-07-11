@@ -54,12 +54,15 @@
     <Compile Include="Enteties\User.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Enteties\UnitOfWork.cs" />
+    <Compile Include="Interfaces\ICardRepository.cs" />
+    <Compile Include="Interfaces\IGameRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="Repositories\GameRepository.cs" />
+    <Compile Include="Interfaces\IRoundRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoundRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

@@ -1,10 +1,11 @@
 ﻿using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Interfaces;
 
 namespace BlackJack.DAL.Repositories
 {
-  public class CardRepository : Repository<Card>
+  public class CardRepository : Repository<Card>, ICardRepository
   {
-    CardRepository(BjContext context):
+    public CardRepository(BjContext context) :
       base(context)
     {
 

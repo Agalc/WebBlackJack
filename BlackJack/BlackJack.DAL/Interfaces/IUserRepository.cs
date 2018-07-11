@@ -3,7 +3,7 @@ using BlackJack.DAL.Enteties;
 
 namespace BlackJack.DAL.Interfaces
 {
-  public interface IUserRepository:IRepository<User>
+  public interface IUserRepository : IRepository<User>
   {
     IEnumerable<User> GetAllUsersWithCards();
     IEnumerable<User> GetUserWithCards();

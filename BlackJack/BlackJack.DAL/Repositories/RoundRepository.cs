@@ -2,9 +2,9 @@
 
 namespace BlackJack.DAL.Repositories
 {
-  public class RoundRepository : Repository<Round>
+  public class RoundRepository : Repository<Round>, IRoundRepository
   {
-    RoundRepository(BjContext context) :
+    public RoundRepository(BjContext context) :
       base(context)
     {
 
