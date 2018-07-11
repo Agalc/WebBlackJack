@@ -11,7 +11,9 @@ namespace BlackJack.DAL.Repositories
   {
     public IEnumerable<User> GetAllUsersWithCards()
     {
-      return new List<User>();
+      return DataBaseContext.Users
+        .Include(c => c.Cards)
+        .ToList();
     }
 
     public IEnumerable<User> GetUserWithCards(int? id)
@@ -20,10 +22,15 @@ namespace BlackJack.DAL.Repositories
       {
         throw new NullReferenceException();
       }
-      return DataBaseContext.Users
+      var u = DataBaseContext.Users
         .Where(i => i.Id == id)
         .Include(c => c.Cards)
-        .ToList(); ;
+        .ToList();
+      if (u == null)
+      {
+        throw new NullReferenceException();
+      }
+      return u;
     }
 
     public UserRepository(BjContext context) :

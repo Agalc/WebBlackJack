@@ -23,7 +23,10 @@ namespace BlackJack.DAL.Repositories
         throw new NullReferenceException();
       }
 
-      return new List<Card>();
+      User u = DataBaseContext.Users.Find(id);
+      return DataBaseContext.Cards
+        .Where(o => o.Id == id)
+        .ToList();
     }
   }
 }
