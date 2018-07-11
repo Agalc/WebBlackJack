@@ -5,17 +5,16 @@
 <body>
   <div>
     <h2>Hand</h2>
-    <p>Id = @ViewBag.UserId</p>
     <table>
       <tr>
         <td><p>Suit</p></td>
         <td><p>Face</p></td>
       </tr>
-      @foreach (var u in ViewBag.Cards)
+      @foreach (var o in ViewBag.Cards)
       {
         <tr>
-          <td><p>@u.Suit</p></td>
-          <td><p>@u.Face</p></td>
+          <td><p>@o.Suit</p></td>
+          <td><p>@o.Face</p></td>
         </tr>
       }
     </table>

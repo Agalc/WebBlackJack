@@ -6,6 +6,6 @@ namespace BlackJack.DAL.Interfaces
   public interface IUserRepository : IRepository<User>
   {
     IEnumerable<User> GetAllUsersWithCards();
-    IEnumerable<User> GetUserWithCards();
+    IEnumerable<User> GetUserWithCards(int? id);
   }
 }

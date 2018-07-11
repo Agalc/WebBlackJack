@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BlackJack.DAL.Enteties;
 using BlackJack.DAL.Interfaces;
 
@@ -25,7 +23,7 @@ namespace BlackJack.Controllers
     [HttpGet]
     public ActionResult Hand(int id)
     {
-      ViewBag.Cards = _unitOfWork.Cards.GetAll();
+      ViewBag.Cards = _unitOfWork.Cards.GetCardsOfUser(id);
       return View();
     }
   }
