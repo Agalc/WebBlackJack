@@ -194,6 +194,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Hand.cshtml" />
+    <Content Include="Views\Home\HistoryOfGames.cshtml" />
+    <Content Include="Views\Home\Game.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

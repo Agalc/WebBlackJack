@@ -5,23 +5,22 @@ namespace BlackJack.Core.Repositories
 {
   public class UnitOfWork : IUnitOfWork
   {
+    public ICardRepository Cards { get; }
+    public IGameRepository Games { get; }
+    public IRoundRepository Rounds { get; }
+    public IUserRepository Users { get; }
 
     private readonly BjContext _context;
 
-    public UnitOfWork(string connectionString)
+    public UnitOfWork(BjContext context)
     {
-      _context = new BjContext(connectionString);
+      _context = context;
 
       Cards = new CardRepository(_context);
       Games = new GameRepository(_context);
       Rounds = new RoundRepository(_context);
       Users = new UserRepository(_context);
     }
-
-    public ICardRepository Cards { private set; get; }
-    public IGameRepository Games { private set; get; }
-    public IRoundRepository Rounds { private set; get; }
-    public IUserRepository Users { private set; get; }
 
     public void Save()
     {

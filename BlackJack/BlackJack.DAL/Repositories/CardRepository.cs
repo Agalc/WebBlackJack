@@ -14,7 +14,7 @@ namespace BlackJack.Core.Repositories
     {
 
     }
-    public BjContext DataBaseContext => Context as BjContext;
+    public BjContext DataBaseContext => _context as BjContext;
 
     public IEnumerable<Card> GetCardsOfUser(int? id)
     {

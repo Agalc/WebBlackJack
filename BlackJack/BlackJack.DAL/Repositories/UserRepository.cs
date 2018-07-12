@@ -9,6 +9,12 @@ namespace BlackJack.Core.Repositories
 {
   public class UserRepository : Repository<User>, IUserRepository
   {
+    public UserRepository(BjContext context) :
+      base(context)
+    { }
+
+    public BjContext DataBaseContext => _context as BjContext;
+
     public IEnumerable<User> GetAllUsersWithCards()
     {
       return DataBaseContext.Users
@@ -27,10 +33,5 @@ namespace BlackJack.Core.Repositories
         .Single(i => i.Id == id);
       return u;
     }
-
-    public UserRepository(BjContext context) :
-      base(context)
-    { }
-    public BjContext DataBaseContext => Context as BjContext;
   }
 }

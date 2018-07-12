@@ -1,0 +1,31 @@
+﻿
+@{
+  ViewBag.Title = "History";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Match history</title>
+</head>
+<body>
+  <div>
+    <h3>Players</h3>
+    <table>
+      <tr>
+        <td><p>Name</p></td>
+        <td><p>Score</p></td>
+      </tr>
+      @foreach (var u in ViewBag.User)
+      {
+        <tr>
+          <td><p>@u.Name</p></td>
+          <td><p>@u.Score</p></td>
+          <td><p><a href="/Home/Hand/@u.Id">Hand</a></p></td>
+        </tr>
+      }
+    </table>
+  </div>
+</body>
+</html>

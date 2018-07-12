@@ -1,23 +1,37 @@
 ﻿using System.Web.Mvc;
+using BlackJack.Core;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Repositories;
+using BlackJack.Core.Services.UserService;
 
 namespace BlackJack.Controllers
 {
   public class HomeController : Controller
   {
     private const string ConnectionString = "Default";
+    static readonly BjContext _context = new BjContext(ConnectionString);
     private readonly IUnitOfWork _unitOfWork;
 
     public HomeController()
     {
-      _unitOfWork = new UnitOfWork(ConnectionString);
+      _unitOfWork = new UnitOfWork(_context);
     }
 
     public ActionResult Index()
     {
-      ViewBag.User = _unitOfWork.Users.GetAll();
+      return View();
+    }
+    
+    public ActionResult HistoryOfGames()//show all games
+    {
+      IUserService userService = new UserService(_unitOfWork);
+      ViewBag.User = userService.GetAllUsers();
+      return View();
+    }
+
+    public ActionResult Game()
+    {
       return View();
     }
 

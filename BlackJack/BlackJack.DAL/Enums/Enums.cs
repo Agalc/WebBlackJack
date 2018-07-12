@@ -1,12 +1,19 @@
 ﻿namespace BlackJack.Core.Enums
 {
-  public enum PlayerType//результат игрока
+  public enum PlayerType
   {
     None = 0,
     Player = 1,
     Bot = 2,
     Dealer = 3
   }
+  public enum PlayerResult//результат игрока
+  {
+    None = 0,
+    BlackJack = 1,
+    Busted = 2//перебор
+  }
+
   public enum Face
   {
     None = 0,
@@ -24,7 +31,6 @@
     King = 12,
     Ace = 13
   }
-
   public enum Suit
   {
     None = 0,

@@ -2,25 +2,13 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width" />
-  <title>Match history</title>
+  <title>BlackJack</title>
 </head>
 <body>
+  <h2>Welcome to BlackJack!</h2>
   <div>
-    <h3>Players</h3>
-    <table>
-      <tr>
-        <td><p>Name</p></td>
-        <td><p>Score</p></td>
-      </tr>
-      @foreach (var u in ViewBag.User)
-      {
-        <tr>
-          <td><p>@u.Name</p></td>
-          <td><p>@u.Score</p></td>
-          <td><p><a href="/Home/Hand/@u.Id">Hand</a></p></td>
-        </tr>
-      }
-    </table>
+    <p><a href="/Home/Game">Start the game</a></p>
+    <p><a href="/Home/HistoryOfGames"> Match History</a></p>
   </div>
 </body>
 </html>
