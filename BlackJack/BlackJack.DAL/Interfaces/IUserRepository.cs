@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using BlackJack.DAL.Enteties;
+using BlackJack.Core.Enteties;
 
-namespace BlackJack.DAL.Interfaces
+namespace BlackJack.Core.Interfaces
 {
   public interface IUserRepository : IRepository<User>
   {
     IEnumerable<User> GetAllUsersWithCards();
-    IEnumerable<User> GetUserWithCards(int? id);
+    User GetCardsOfUser(int? id);
   }
 }

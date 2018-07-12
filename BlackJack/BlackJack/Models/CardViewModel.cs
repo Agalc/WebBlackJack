@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BlackJack.DAL.Enums;
+using BlackJack.Core.Enums;
 
 namespace BlackJack.Models
 {

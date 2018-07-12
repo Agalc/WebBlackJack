@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using BlackJack.DAL.Interfaces;
-using BlackJack.DAL.Repositories;
+using BlackJack.Core.Interfaces;
 
-namespace BlackJack.DAL.Enteties
+namespace BlackJack.Core.Repositories
 {
   public class UnitOfWork : IUnitOfWork
   {

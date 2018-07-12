@@ -1,6 +1,6 @@
-﻿using BlackJack.DAL.Enteties;
+﻿using BlackJack.Core.Enteties;
 
-namespace BlackJack.DAL.Interfaces
+namespace BlackJack.Core.Interfaces
 {
   public interface IGameRepository : IRepository<Game>
   {

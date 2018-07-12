@@ -1,6 +1,6 @@
-﻿using BlackJack.DAL.Enteties;
+﻿using BlackJack.Core.Enteties;
 
-namespace BlackJack.DAL.Repositories
+namespace BlackJack.Core.Repositories
 {
   public class RoundRepository : Repository<Round>, IRoundRepository
   {

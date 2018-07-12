@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlackJack.DAL.Enteties
+namespace BlackJack.Core.Enteties
 {
   public class Game
   {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BlackJack.DAL.Enums;
+using BlackJack.Core.Enums;
 
-namespace BlackJack.DAL.Enteties
+namespace BlackJack.Core.Enteties
 {
   public class User
   {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BlackJack.DAL.Enteties;
-using BlackJack.DAL.Interfaces;
+using BlackJack.Core.Enteties;
+using BlackJack.Core.Interfaces;
 
-namespace BlackJack.DAL.Repositories
+namespace BlackJack.Core.Repositories
 {
   public class UserRepository : Repository<User>, IUserRepository
   {
@@ -16,20 +16,15 @@ namespace BlackJack.DAL.Repositories
         .ToList();
     }
 
-    public IEnumerable<User> GetUserWithCards(int? id)
+    public User GetCardsOfUser(int? id)
     {
       if (id == null)
       {
         throw new NullReferenceException();
       }
       var u = DataBaseContext.Users
-        .Where(i => i.Id == id)
         .Include(c => c.Cards)
-        .ToList();
-      if (u == null)
-      {
-        throw new NullReferenceException();
-      }
+        .Single(i => i.Id == id);
       return u;
     }
 

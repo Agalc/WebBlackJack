@@ -1,4 +1,4 @@
-﻿namespace BlackJack.DAL.Enums
+﻿namespace BlackJack.Core.Enums
 {
   public enum PlayerType//результат игрока
   {

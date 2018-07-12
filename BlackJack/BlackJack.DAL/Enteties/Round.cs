@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BlackJack.DAL.Enteties
+namespace BlackJack.Core.Enteties
 {
   public class Round
   {

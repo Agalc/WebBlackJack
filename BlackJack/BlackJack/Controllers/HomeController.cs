@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
-using BlackJack.DAL.Enteties;
-using BlackJack.DAL.Interfaces;
+using BlackJack.Core.Enteties;
+using BlackJack.Core.Interfaces;
+using BlackJack.Core.Repositories;
 
 namespace BlackJack.Controllers
 {
@@ -23,8 +24,8 @@ namespace BlackJack.Controllers
     [HttpGet]
     public ActionResult Hand(int id)
     {
-      ViewBag.Cards = _unitOfWork.Cards.GetCardsOfUser(id);
-      return View();
+      User u = _unitOfWork.Users.GetCardsOfUser(id);
+      return View(u);
     }
   }
 }

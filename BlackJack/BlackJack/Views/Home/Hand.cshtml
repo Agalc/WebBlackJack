@@ -1,7 +1,8 @@
 ﻿@{
   ViewBag.Title = "Hand";
 }
-
+@using BlackJack.Core.Enteties
+@model BlackJack.Core.Enteties.User
 <body>
   <div>
     <h2>Hand</h2>
@@ -9,8 +10,8 @@
       <tr>
         <td><p>Suit</p></td>
         <td><p>Face</p></td>
-      </tr>
-      @foreach (var o in ViewBag.Users)
+      </tr> 
+      @foreach (Card o in Model.Cards)
       {
         <tr>
           <td><p>@o.Suit</p></td>
