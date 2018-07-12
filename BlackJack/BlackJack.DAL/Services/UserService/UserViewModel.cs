@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
+using BlackJack.Core.Services.CardService;
 
 namespace BlackJack.Core.Services.UserService
 {
@@ -10,6 +10,6 @@ namespace BlackJack.Core.Services.UserService
     public string Name { set; get; }
     public int? Score { set; get; }
     public PlayerResult Result { set; get; }
-    public List<Card> Cards { set; get; } = new List<Card>();
+    public List<CardViewModel> Cards { set; get; } = new List<CardViewModel>();
   }
 }

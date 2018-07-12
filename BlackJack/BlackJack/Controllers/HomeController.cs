@@ -3,6 +3,8 @@ using BlackJack.Core;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Repositories;
+using BlackJack.Core.Services.CardService;
+using BlackJack.Core.Services.DeckService;
 using BlackJack.Core.Services.UserService;
 
 namespace BlackJack.Controllers
@@ -22,7 +24,7 @@ namespace BlackJack.Controllers
     {
       return View();
     }
-    
+
     public ActionResult HistoryOfGames()//show all games
     {
       IUserService userService = new UserService(_unitOfWork);
@@ -32,6 +34,8 @@ namespace BlackJack.Controllers
 
     public ActionResult Game()
     {
+      DeckService deckService = new DeckService(_unitOfWork);
+      
       return View();
     }
 

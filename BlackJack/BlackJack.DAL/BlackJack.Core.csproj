@@ -75,6 +75,10 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoundRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Services\CardService\CardService.cs" />
+    <Compile Include="Services\CardService\CardViewModel.cs" />
+    <Compile Include="Services\CardService\ICardService.cs" />
+    <Compile Include="Services\DeckService\DeckService.cs" />
     <Compile Include="Services\UserService\IUserService.cs" />
     <Compile Include="Services\UserService\UserService.cs" />
     <Compile Include="Services\UserService\UserViewModel.cs" />

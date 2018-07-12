@@ -4,6 +4,7 @@ using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
 using BlackJack.Core.Infrastructure;
 using BlackJack.Core.Interfaces;
+using BlackJack.Core.Services.CardService;
 
 namespace BlackJack.Core.Services.UserService
 {
@@ -11,7 +12,7 @@ namespace BlackJack.Core.Services.UserService
   {
     private readonly IUnitOfWork _database;
 
-    public UserService(IUnitOfWork uow) => _database = uow;
+    public UserService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
     public void InsertUser(UserViewModel user, PlayerType type, int? roundId)
     {
@@ -19,13 +20,15 @@ namespace BlackJack.Core.Services.UserService
       {
         throw new ValidationException("Пользователь не найден", "");
       }
+      var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CardViewModel, Card>()).CreateMapper();
+      List<Card> cards = mapper.Map<IEnumerable<CardViewModel>, List<Card>>(user.Cards);
 
       User newUser = new User
       {
         Id = user.Id,
         Name = user.Name,
         Score = user.Score,
-        Cards = user.Cards,
+        Cards = cards,
         Type = type,
         RoundId = roundId
       };
@@ -42,11 +45,14 @@ namespace BlackJack.Core.Services.UserService
       if (wantedUser == null)
         throw new ValidationException("Пользователь не найден", "");
 
+      var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Card, CardViewModel>()).CreateMapper();
+      var cards =  mapper.Map<IEnumerable<Card>, List<CardViewModel>>(wantedUser.Cards);
+
       return new UserViewModel()
       {
         Id = wantedUser.Id,
         Name = wantedUser.Name,
-        Cards = wantedUser.Cards,
+        Cards = cards,
         Score = wantedUser.Score
       };
     }
@@ -55,6 +61,22 @@ namespace BlackJack.Core.Services.UserService
     {
       var mapper = new MapperConfiguration(cfg => cfg.CreateMap<User, UserViewModel>()).CreateMapper();
       return mapper.Map<IEnumerable<User>, List<UserViewModel>>(_database.Users.GetAll());
+    }
+
+    public void PutCardInHand(CardViewModel card, UserViewModel user)//Добавить карту в руку
+    {
+      user.Cards.Add(card);//Добавить карту в руку
+      //Если добавляем туз и получается перебор, то туз будет стоить 1 очко
+      if (card.Face == Face.Ace && user.Score + 11 > 21)
+      {
+        user.Cards[user.Cards.Count - 1].Value = 1;
+        user.Score += 1;
+      }
+      //Иначе просто добавляем значение к счету
+      else
+      {
+        user.Score += card.Value;
+      }
     }
 
     public void Dispose()
