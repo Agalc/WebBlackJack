@@ -9,7 +9,8 @@ namespace BlackJack.Core.Services.UserService
     public int? Id { set; get; }
     public string Name { set; get; }
     public int? Score { set; get; }
-    public PlayerResult Result { set; get; }
     public List<CardViewModel> Cards { set; get; } = new List<CardViewModel>();
+
+    public PlayerResult Result { set; get; }
   }
 }

@@ -10,8 +10,8 @@ namespace BlackJack.Core.Enteties
     public Face Face { set; get; }
     public Suit Suit { set; get; }
 
+    //FK
     public ICollection<User> Users { get; set; }
-
     public Card()
     {
       Users = new List<User>();

@@ -10,14 +10,12 @@ namespace BlackJack.Core.Services.DeckService
 {
   public class DeckService
   {
-    private static IUnitOfWork _database;
     protected static ICardService _cardService;
     protected readonly List<CardViewModel> _cards;
 
     public DeckService(IUnitOfWork database)
     {
-      _database = database;
-      _cardService = new CardService.CardService(_database);
+      _cardService = new CardService.CardService(database);
       _cards = _cardService.GetAllCards().ToList();
       CreateDeck();
     }

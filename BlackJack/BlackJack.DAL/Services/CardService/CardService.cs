@@ -12,6 +12,31 @@ namespace BlackJack.Core.Services.CardService
 
     public CardService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
+    public void DeleteCard(int? id)
+    {
+      if (id == null)
+      {
+        throw new ValidationException("Не установлено id карты", "");
+      }
+
+    }
+
+    public void UpdateCard(int? id)
+    {
+      if (id == null)
+      {
+        throw new ValidationException("Не установлено id карты", "");
+      }
+
+      var wantedCard = _database.Cards.Get(id.Value);
+      if (wantedCard == null)
+      {
+        throw new ValidationException("Карта не найдена", "");
+      }
+
+
+    }
+
     public void InsertCard(CardViewModel card)
     {
       if (card == null)
@@ -32,11 +57,15 @@ namespace BlackJack.Core.Services.CardService
     public CardViewModel GetCard(int? id)
     {
       if (id == null)
+      {
         throw new ValidationException("Не установлено id карты", "");
+      }
 
       var wantedCard = _database.Cards.Get(id.Value);
       if (wantedCard == null)
-        throw new ValidationException("Карта не найден", "");
+      {
+        throw new ValidationException("Карта не найдена", "");
+      }
 
       return new CardViewModel()
       {
