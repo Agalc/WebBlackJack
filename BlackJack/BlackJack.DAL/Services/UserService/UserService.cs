@@ -14,33 +14,57 @@ namespace BlackJack.Core.Services.UserService
 
     public UserService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
-    private List<Card> ConvertCardVMToCard(List<CardViewModel> cardsViewModel)//VM - ViewModel
+    //CRUD
+    public void UpdateUser(int? id, UserViewModel editedUser)
     {
-      //from CardViewModel to Card
-      var mapper = new MapperConfiguration(cfg => cfg.CreateMap<CardViewModel, Card>()).CreateMapper();
-      return mapper.Map<IEnumerable<CardViewModel>, List<Card>>(cardsViewModel);
+      if (id == null)
+      {
+        throw new ValidationException("Не установлен id пользователя", "UpdateUser");
+      }
+
+      User wantedUser = _database.Users.Get((int)id);
+      if (wantedUser == null)
+      {
+        throw new ValidationException("Пользователь не найден", "GetUser");
+      }
+
+      wantedUser = new User()
+      {
+        Cards = CardConverter.ConvertCardVMToCard(editedUser.Cards),
+        Id = editedUser.Id,
+        Name = editedUser.Name
+      };
+      _database.Users.Edit((int)id, wantedUser);
     }
 
-    private List<CardViewModel> ConvertCardToCardVM(List<Card> cards)
+    public void DeleteUser(int? id)
     {
-      //frim Card to ViewModel
-      var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Card, CardViewModel>()).CreateMapper();
-      return mapper.Map<IEnumerable<Card>, List<CardViewModel>>(cards);
+      if (id == null)
+      {
+        throw new ValidationException("Не установлен id пользователя", "DeleteUser");
+      }
+
+      var wantedUser = _database.Users.Get(id.Value);
+      if (wantedUser == null)
+      {
+        throw new ValidationException("Пользователь не найден", "DeleteUser");
+      }
+      _database.Users.Remove(id.Value);
     }
 
-    public void InsertUser(UserViewModel user, PlayerType type, int? roundId)
+    public void CreateUser(UserViewModel user, PlayerType type, int? roundId)
     {
       if (user == null)
       {
-        throw new ValidationException("Пользователь не найден", "");
+        throw new ValidationException("Пользователь не найден", "CreateUser");
       }
-      
+
       User newUser = new User
       {
         Id = user.Id,
         Name = user.Name,
         Score = user.Score,
-        Cards = ConvertCardVMToCard(user.Cards),
+        Cards = CardConverter.ConvertCardVMToCard(user.Cards),
         Type = type,
         RoundId = roundId
       };
@@ -51,38 +75,34 @@ namespace BlackJack.Core.Services.UserService
     public UserViewModel GetUser(int? id)
     {
       if (id == null)
-        throw new ValidationException("Не установлено id пользователя", "");
+        throw new ValidationException("Не установлено id пользователя", "GetUser");
 
       var wantedUser = _database.Users.Get(id.Value);
       if (wantedUser == null)
-        throw new ValidationException("Пользователь не найден", "");
-
-
+        throw new ValidationException("Пользователь не найден", "GetUser");
 
       return new UserViewModel()
       {
         Id = wantedUser.Id,
         Name = wantedUser.Name,
-        Cards = ConvertCardToCardVM(wantedUser.Cards),
+        Cards = CardConverter.ConvertCardToCardVM(wantedUser.Cards),
         Score = wantedUser.Score
       };
     }
 
     public IEnumerable<UserViewModel> GetAllUsers()
     {
-      // var config = new MapperConfiguration(cfg => {
-
-      //  cfg.CreateMap<AuthorModel, AuthorDTO>()
-
-      //    .ForMember(destination => destination.ContactDetails,
-
-      //      opts => opts.MapFrom(source => source.Contact));
-
-      //});
-      var mapper = new MapperConfiguration(cfg => cfg.CreateMap<User, UserViewModel>()).CreateMapper();
-      return mapper.Map<IEnumerable<User>, List<UserViewModel>>(_database.Users.GetAll());
+      var config = new MapperConfiguration(cfg =>
+      {
+        cfg.CreateMap<User, UserViewModel>()
+          .ForMember(destanation => destanation.Cards,
+            opts => opts.MapFrom(source => source.Cards));
+      });
+      //var mapper = new MapperConfiguration(cfg => cfg.CreateMap<User, UserViewModel>()).CreateMapper();
+      return config.CreateMapper().Map<IEnumerable<User>, List<UserViewModel>>(_database.Users.GetAll());
     }
 
+    //GameLogic
     public void PutCardInHand(CardViewModel card, UserViewModel user)//Добавить карту в руку
     {
       user.Cards.Add(card);//Добавить карту в руку

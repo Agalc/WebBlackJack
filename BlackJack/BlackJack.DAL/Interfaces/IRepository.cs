@@ -8,6 +8,7 @@ namespace BlackJack.Core.Interfaces
     TEntity Get(int id);
     IEnumerable<TEntity> GetAll();    
     IEnumerable<TEntity> Find(Func<TEntity, Boolean> predicate);
+    void Edit(int id, TEntity editedEntity);
 
     void Add(TEntity item);
     void Remove(int id);

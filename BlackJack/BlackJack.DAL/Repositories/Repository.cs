@@ -27,9 +27,11 @@ namespace BlackJack.Core.Repositories
       _context.Set<TEntity>().Add(entity);
     }
 
-    public void Update(TEntity entity)
+    public void Edit(int id, TEntity editedEntity)
     {
-      _context.Entry(entity).State = EntityState.Modified;
+      TEntity entity = _context.Set<TEntity>().Find(id);
+      _context.Entry(entity).CurrentValues.SetValues(editedEntity);
+
     }
 
     public IEnumerable<TEntity> Find(Func<TEntity, Boolean> predicate)

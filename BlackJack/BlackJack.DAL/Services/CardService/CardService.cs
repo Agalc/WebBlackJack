@@ -12,36 +12,48 @@ namespace BlackJack.Core.Services.CardService
 
     public CardService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
+
+    //CRUD
     public void DeleteCard(int? id)
     {
       if (id == null)
       {
-        throw new ValidationException("Не установлено id карты", "");
+        throw new ValidationException("Не установлено id карты", "DeleteCard");
       }
-
+      var wantedCard = _database.Cards.Get(id.Value);
+      if (wantedCard == null)
+      {
+        throw new ValidationException("Карта не найдена", "DeleteUser");
+      }
+      _database.Cards.Remove(id.Value);
     }
 
-    public void UpdateCard(int? id)
+    public void UpdateCard(int? id, Card editedCard)
     {
       if (id == null)
       {
-        throw new ValidationException("Не установлено id карты", "");
+        throw new ValidationException("Не установлено id карты", "UpdateCard");
       }
 
       var wantedCard = _database.Cards.Get(id.Value);
       if (wantedCard == null)
       {
-        throw new ValidationException("Карта не найдена", "");
+        throw new ValidationException("Карта не найдена", "UpdateCard");
       }
-
-
+      wantedCard = new Card
+      {
+        Face = editedCard.Face,
+        Id = editedCard.Id,
+        Suit = editedCard.Suit
+      };
+      _database.Cards.Edit((int)id, wantedCard);
     }
 
-    public void InsertCard(CardViewModel card)
+    public void CreateCard(CardViewModel card)
     {
       if (card == null)
       {
-        throw new ValidationException("Карта не найдена", "");
+        throw new ValidationException("Карта не найдена", "CreateCard");
       }
 
       Card newCard = new Card
@@ -58,13 +70,13 @@ namespace BlackJack.Core.Services.CardService
     {
       if (id == null)
       {
-        throw new ValidationException("Не установлено id карты", "");
+        throw new ValidationException("Не установлено id карты", "GetCard");
       }
 
       var wantedCard = _database.Cards.Get(id.Value);
       if (wantedCard == null)
       {
-        throw new ValidationException("Карта не найдена", "");
+        throw new ValidationException("Карта не найдена", "GetCard");
       }
 
       return new CardViewModel()

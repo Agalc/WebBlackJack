@@ -5,9 +5,13 @@ namespace BlackJack.Core.Services.UserService
 {
   public interface IUserService
   {
-    void InsertUser(UserViewModel user, PlayerType type, int? roundId);
+    void CreateUser(UserViewModel user, PlayerType type, int? roundId);
+    void UpdateUser(int? id, UserViewModel editedUser);
+    void DeleteUser(int? id);
+
     UserViewModel GetUser(int? id);
     IEnumerable<UserViewModel> GetAllUsers();
+
     void Dispose();
   }
 }

@@ -1,38 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlackJack.Core.Enums;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Services.CardService;
 
 
 namespace BlackJack.Core.Services.DeckService
 {
-  public class DeckService
+  public abstract class DeckService
   {
-    protected static ICardService _cardService;
+    protected static IUnitOfWork _unitOfWork;
     protected readonly List<CardViewModel> _cards;
+    public static byte  CardCount { private set; get; }
 
-    public DeckService(IUnitOfWork database)
+    protected DeckService(IUnitOfWork unitOfWork)
     {
-      _cardService = new CardService.CardService(database);
-      _cards = _cardService.GetAllCards().ToList();
+      _unitOfWork = unitOfWork;
+      _cards = CardConverter.ConvertCardToCardVM(_unitOfWork.Cards.GetAll().ToList());
       CreateDeck();
     }
 
-    protected void CreateDeck() //Создание колоды
-    {
-      for (var i = 0; i < 4; i++)
-      {
-        for (var j = 0; j < 13; j++)
-        {
-          // +2 к значению из-за None и отсутствия единицы в колоде, +1 к масти из-за None
-          _cards.Add(new CardViewModel() { Face = (Face)j + 1, Suit = (Suit)i + 1, Value = Math.Min(j + 2, 10) });
-        }
-        _cards[_cards.Count - 1].Value = 11;//для туза задать 11
-      }
-      Shuffle();
-    }
+    public abstract void CreateDeck();
 
     public void Shuffle()//перемешивание колоды
     {
@@ -46,13 +34,14 @@ namespace BlackJack.Core.Services.DeckService
         _cards[k] = _cards[n];
         _cards[n] = card;
       }
-
+      CardCount = (byte)_cards.Count();
     }
 
-    public CardViewModel DrawCard()//взять карту
+    public CardViewModel DrawCard()//достать верхнюю карту из колоды
     {
       CardViewModel takenCard = _cards[_cards.Count - 1];
       _cards.RemoveAt(_cards.Count - 1);
+      CardCount = (byte)_cards.Count;
       return takenCard;
     }
   }

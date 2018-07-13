@@ -34,7 +34,7 @@ namespace BlackJack.Controllers
 
     public ActionResult Game()
     {
-      DeckService deckService = new DeckService(_unitOfWork);
+      DeckService deckService = new SingleDeckService(_unitOfWork);
       
       return View();
     }

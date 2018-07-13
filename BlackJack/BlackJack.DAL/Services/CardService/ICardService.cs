@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
+using BlackJack.Core.Enteties;
 
 namespace BlackJack.Core.Services.CardService
 {
   public interface ICardService
   {
-    void InsertCard(CardViewModel card);
+    void CreateCard(CardViewModel card);
+    void UpdateCard(int? id, Card editdCard);
     void DeleteCard(int? id);
-    void UpdateCard(int? id);
+
     CardViewModel GetCard(int? id);
     IEnumerable<CardViewModel> GetAllCards();
 

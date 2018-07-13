@@ -75,10 +75,16 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoundRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Services\CardService\CardConverter.cs" />
     <Compile Include="Services\CardService\CardService.cs" />
     <Compile Include="Services\CardService\CardViewModel.cs" />
     <Compile Include="Services\CardService\ICardService.cs" />
     <Compile Include="Services\DeckService\DeckService.cs" />
+    <Compile Include="Services\DeckService\SingleDeckService.cs" />
+    <Compile Include="Services\GameService\GameService.cs" />
+    <Compile Include="Services\GameService\GameViewModel.cs" />
+    <Compile Include="Services\GameService\IGameService.cs" />
+    <Compile Include="Services\GameService\RoundViewModel.cs" />
     <Compile Include="Services\UserService\IUserService.cs" />
     <Compile Include="Services\UserService\UserService.cs" />
     <Compile Include="Services\UserService\UserViewModel.cs" />
