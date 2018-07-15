@@ -26,6 +26,7 @@ namespace BlackJack.Core.Services.CardService
         throw new ValidationException("Карта не найдена", "DeleteUser");
       }
       _database.Cards.Remove(id.Value);
+      _database.Save();
     }
 
     public void UpdateCard(int? id, Card editedCard)
@@ -47,6 +48,7 @@ namespace BlackJack.Core.Services.CardService
         Suit = editedCard.Suit
       };
       _database.Cards.Edit((int)id, wantedCard);
+      _database.Save();
     }
 
     public void CreateCard(CardViewModel card)

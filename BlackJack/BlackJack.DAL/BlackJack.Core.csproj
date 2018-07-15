@@ -81,6 +81,7 @@
     <Compile Include="Services\CardService\ICardService.cs" />
     <Compile Include="Services\DeckService\DeckService.cs" />
     <Compile Include="Services\DeckService\SingleDeckService.cs" />
+    <Compile Include="Services\GameService\GameFlow.cs" />
     <Compile Include="Services\GameService\GameService.cs" />
     <Compile Include="Services\GameService\GameViewModel.cs" />
     <Compile Include="Services\GameService\IGameService.cs" />

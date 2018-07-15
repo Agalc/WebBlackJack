@@ -19,10 +19,16 @@ namespace BlackJack.Core.Services.GameService
       {
         throw new ValidationException("Не установлено id игры", "DeleteGame");
       }
-
+      var wantedGame = _database.Games.Get(id.Value);
+      if (wantedGame == null)
+      {
+        throw new ValidationException("Игра не найдена", "DeleteUser");
+      }
+      _database.Games.Remove(id.Value);
+      _database.Save();
     }
 
-    public void UpdateGame(int? id)
+    public void UpdateGame(int? id,GameViewModel editedGame)
     {
       if (id == null)
       {
@@ -34,8 +40,13 @@ namespace BlackJack.Core.Services.GameService
       {
         throw new ValidationException("Игра не найдена", "UpdateGame");
       }
-
-
+      wantedGame = new Game
+      {
+        Id = editedGame.Id,
+        DateTime= editedGame.DateTime
+      };
+      _database.Games.Edit((int)id, wantedGame);
+      _database.Save();
     }
 
     public void CreateGame(GameViewModel game)

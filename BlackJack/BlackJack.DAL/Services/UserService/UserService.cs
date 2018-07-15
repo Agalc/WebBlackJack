@@ -35,6 +35,7 @@ namespace BlackJack.Core.Services.UserService
         Name = editedUser.Name
       };
       _database.Users.Edit((int)id, wantedUser);
+      _database.Save();
     }
 
     public void DeleteUser(int? id)
@@ -50,6 +51,7 @@ namespace BlackJack.Core.Services.UserService
         throw new ValidationException("Пользователь не найден", "DeleteUser");
       }
       _database.Users.Remove(id.Value);
+      _database.Save();
     }
 
     public void CreateUser(UserViewModel user, PlayerType type, int? roundId)

@@ -5,7 +5,7 @@ namespace BlackJack.Core.Services.GameService
   interface IGameService
   {
     void CreateGame(GameViewModel game);
-    void UpdateGame(int? id);
+    void UpdateGame(int? id, GameViewModel editedGame);
     void DeleteGame(int? id);
 
     GameViewModel GetGame(int? id);

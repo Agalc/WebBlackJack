@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using BlackJack.Core;
 using BlackJack.Core.Enteties;
+using BlackJack.Core.Enums;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Repositories;
-using BlackJack.Core.Services.CardService;
 using BlackJack.Core.Services.DeckService;
 using BlackJack.Core.Services.UserService;
 
@@ -31,6 +31,22 @@ namespace BlackJack.Controllers
       ViewBag.User = userService.GetAllUsers();
       return View();
     }
+
+    [HttpGet]
+    public ActionResult AddUser()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult AddUser(UserViewModel newUser)
+    {
+      IUserService userService = new UserService(_unitOfWork);
+      userService.CreateUser(newUser, PlayerType.Player, 1);
+      _unitOfWork.Save();
+      return View();
+    }
+   
 
     public ActionResult Game()
     {
