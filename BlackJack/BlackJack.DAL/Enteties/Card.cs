@@ -11,7 +11,7 @@ namespace BlackJack.Core.Enteties
     public Suit Suit { set; get; }
 
     //FK
-    public ICollection<User> Users { get; set; }
+    public List<User> Users { get; set; }
     public Card()
     {
       Users = new List<User>();

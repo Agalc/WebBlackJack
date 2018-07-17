@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BlackJack.Core.Services.UserService;
 
 namespace BlackJack.Core.Services.GameService
@@ -22,15 +18,15 @@ namespace BlackJack.Core.Services.GameService
       _users.Add(new UserViewModel(){Name = "Dealer"});
     }
 
-    public static void PlaceCards(Deck deck)//раздача карт в руки
-    {
-      foreach (var u in _users)
-      {
-        //По две карты
-        u.PutCardInHand(deck.DrawCard());
-        u.PutCardInHand(deck.DrawCard());
-      }
-    }
+    //public static void PlaceCards(Deck deck)//раздача карт в руки
+    //{
+    //  foreach (var u in _users)
+    //  {
+    //    //По две карты
+    //    u.PutCardInHand(deck.DrawCard());
+    //    u.PutCardInHand(deck.DrawCard());
+    //  }
+    //}
 
     //public static void CheckScore(User user)//Проверить счет
     //{

@@ -11,13 +11,13 @@ namespace BlackJack.Core.Enteties
     public PlayerType Type { get; set; }
 
     //FK to Round
-    public int? RoundId { set; get; }
-    public Round Roound { set; get; }
+    public List<Round> Rounds { set; get; }
     //FK to Cards
     public List<Card> Cards { get; set; }
     public User()
     {
       Cards = new List<Card>();
+      Rounds = new List<Round>();
     }
   }
 }

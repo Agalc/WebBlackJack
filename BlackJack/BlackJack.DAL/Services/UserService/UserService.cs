@@ -30,7 +30,7 @@ namespace BlackJack.Core.Services.UserService
 
       wantedUser = new User()
       {
-        Cards = CardConverter.ConvertCardVMToCard(editedUser.Cards),
+        Cards = CardConverter.ConvertCardVmToCard(editedUser.Cards),
         Id = editedUser.Id,
         Name = editedUser.Name
       };
@@ -54,7 +54,7 @@ namespace BlackJack.Core.Services.UserService
       _database.Save();
     }
 
-    public void CreateUser(UserViewModel user, PlayerType type, int? roundId)
+    public void CreateUser(UserViewModel user, PlayerType type)
     {
       if (user == null)
       {
@@ -66,9 +66,9 @@ namespace BlackJack.Core.Services.UserService
         Id = user.Id,
         Name = user.Name,
         Score = user.Score,
-        Cards = CardConverter.ConvertCardVMToCard(user.Cards),
+        Cards = CardConverter.ConvertCardVmToCard(user.Cards),
         Type = type,
-        RoundId = roundId
+        //Rounds = user.Rounds
       };
       _database.Users.Add(newUser);
       _database.Save();
@@ -87,7 +87,7 @@ namespace BlackJack.Core.Services.UserService
       {
         Id = wantedUser.Id,
         Name = wantedUser.Name,
-        Cards = CardConverter.ConvertCardToCardVM(wantedUser.Cards),
+        Cards = CardConverter.ConvertCardToCardVm(wantedUser.Cards),
         Score = wantedUser.Score
       };
     }

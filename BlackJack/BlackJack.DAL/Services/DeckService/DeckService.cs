@@ -16,7 +16,7 @@ namespace BlackJack.Core.Services.DeckService
     protected DeckService(IUnitOfWork unitOfWork)
     {
       _unitOfWork = unitOfWork;
-      _cards = CardConverter.ConvertCardToCardVM(_unitOfWork.Cards.GetAll().ToList());
+      _cards = CardConverter.ConvertCardToCardVm(_unitOfWork.Cards.GetAll().ToList());
       CreateDeck();
     }
 

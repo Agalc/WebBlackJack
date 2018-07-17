@@ -42,7 +42,7 @@ namespace BlackJack.Controllers
     public ActionResult AddUser(UserViewModel newUser)
     {
       IUserService userService = new UserService(_unitOfWork);
-      userService.CreateUser(newUser, PlayerType.Player, 1);
+      userService.CreateUser(newUser, PlayerType.Player);
       _unitOfWork.Save();
       return View();
     }

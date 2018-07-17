@@ -8,8 +8,8 @@ namespace BlackJack.Core.Enteties
     public int? WinnerId { set; get; }
 
     //FK
-    public ICollection<User> Users { set; get; }
-    public ICollection<Game> Games { set; get; }
+    public List<User> Users { set; get; }
+    public List<Game> Games { set; get; }
     public Round()
     {
       Users = new List<User>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack.Core.Services.GameService
 {
-  class RoundViewModel
+  public class RoundViewModel
   {
     public int? Id { set; get; }
     public int? WinnerId { set; get; }
