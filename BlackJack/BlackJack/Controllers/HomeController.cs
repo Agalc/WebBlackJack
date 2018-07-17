@@ -46,12 +46,12 @@ namespace BlackJack.Controllers
       _unitOfWork.Save();
       return View();
     }
-   
+
 
     public ActionResult Game()
     {
-      DeckService deckService = new SingleDeckService(_unitOfWork);
-      
+      new SingleDeckService(_unitOfWork);
+
       return View();
     }
 

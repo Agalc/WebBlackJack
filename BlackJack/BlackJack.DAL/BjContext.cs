@@ -10,6 +10,7 @@ namespace BlackJack.Core
     public DbSet<Card> Cards { get; set; }
     public DbSet<Round> Rounds { get; set; }
 
+    public BjContext() { }
     public BjContext(string connectionString)
       : base(connectionString)
     {

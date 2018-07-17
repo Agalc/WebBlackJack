@@ -20,7 +20,7 @@ namespace BlackJack.Core.Services.DeckService
       CreateDeck();
     }
 
-    public abstract void CreateDeck();
+    protected abstract void CreateDeck();
 
     public void Shuffle()//перемешивание колоды
     {

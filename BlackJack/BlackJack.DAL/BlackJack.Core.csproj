@@ -62,6 +62,11 @@
     <Compile Include="Enteties\User.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
+    <Compile Include="Migrations\201807171844345_DatabaseSetup.cs" />
+    <Compile Include="Migrations\201807171844345_DatabaseSetup.Designer.cs">
+      <DependentUpon>201807171844345_DatabaseSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Interfaces\ICardRepository.cs" />
     <Compile Include="Interfaces\IGameRepository.cs" />
@@ -90,7 +95,11 @@
     <Compile Include="Services\UserService\UserService.cs" />
     <Compile Include="Services\UserService\UserViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807171844345_DatabaseSetup.resx">
+      <DependentUpon>201807171844345_DatabaseSetup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
