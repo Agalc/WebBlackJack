@@ -1,12 +1,16 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BlackJack.Core;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
+using BlackJack.Core.Infrastructure;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Logic;
 using BlackJack.Core.Repositories;
 using BlackJack.Core.Services.CardService;
+using BlackJack.Core.Services.GameService;
 using BlackJack.Core.Services.UserService;
 
 namespace BlackJack.Controllers
@@ -49,13 +53,40 @@ namespace BlackJack.Controllers
       return View();
     }
 
-
+    [HttpGet]
     public ActionResult Game()
     {
-      new SingleDeck(CardConverter.ConvertCardToCardVm(_unitOfWork.Cards.GetAll().ToList()));
+      IGameService gameService = new GameService(_unitOfWork);
+      var newGame = new GameViewModel { DateTime = DateTime.Now };
+      int gameId;
+      try
+      {
+        gameId = gameService.GetIdOfLastGame();
+      }
+      catch (ValidationException e)
+      {
+        Console.WriteLine(e);
+        throw;
+      }
+      finally
+      {
+        gameId = 1;
+        newGame.Id = gameId;
+      }
+      
+      //gameService.CreateGame(newGame);
+      
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Game(List<UserViewModel> users)
+    {
 
       return View();
     }
+
+
 
     [HttpGet]
     public ActionResult Hand(int id)

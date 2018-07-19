@@ -1,16 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Infrastructure;
 using BlackJack.Core.Interfaces;
 using BlackJack.Core.Logic;
+using BlackJack.Core.Services.CardService;
 
 namespace BlackJack.Core.Services.GameService
 {
   public class GameService : IGameService
   {
     private readonly IUnitOfWork _database;
-    
+    public GameService(IUnitOfWork unitOfWork) => _database = unitOfWork;
+
+    public void CreateDeck()
+    {
+      Deck deck = new SingleDeck(CardConverter.ConvertCardToCardVm(_database.Cards.GetAll().ToList()));
+    }
+
+    public void StartTheGame()
+    {
+    }
+
+
     //public static void Play()//ход игры
     //{
     //  //Регистрация и добавление ботов
@@ -25,11 +38,7 @@ namespace BlackJack.Core.Services.GameService
     //  PrintStats();
 
     //  SumUp();//Итог матча
-    public void StartTheGame()
-    {
-    }
 
-    public GameService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
     //CRUD
     public void DeleteGame(int? id)
@@ -75,13 +84,24 @@ namespace BlackJack.Core.Services.GameService
         throw new ValidationException("Игра не найдена", "CreateGame");
       }
 
-      Game newGame = new Game
-      {
-        Id = game.Id,
-        DateTime = game.DateTime
-      };
+      var newGame = new Game { DateTime = game.DateTime };
       _database.Games.Add(newGame);
       _database.Save();
+    }
+
+    public int GetIdOfLastGame()
+    {
+      var games =_database.Games.GetAll().ToList();
+      if (games.Count == 0)
+      {
+        throw new ValidationException("Игр не найдено", "GetIdOfLastGame");
+      }
+      int? lastIndex = games[games.Count-1].Id;
+      if (lastIndex==null)
+      {
+        throw new ValidationException("Последняя игра не найдена", "GetIdOfLastGame");
+      }
+      return lastIndex.Value;
     }
 
     public GameViewModel GetGame(int? id)
