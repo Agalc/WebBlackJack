@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enums;
 
-namespace BlackJack.Core.Enteties
+namespace BlackJack.DAL.Enteties
 {
   public class Round
   {

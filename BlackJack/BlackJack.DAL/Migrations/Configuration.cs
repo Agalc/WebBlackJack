@@ -1,11 +1,8 @@
-namespace BlackJack.Core.Migrations
-{
-  using System;
-  using System.Data.Entity;
-  using System.Data.Entity.Migrations;
-  using System.Linq;
+using System.Data.Entity.Migrations;
 
-  internal sealed class Configuration : DbMigrationsConfiguration<BlackJack.Core.BjContext>
+namespace BlackJack.DAL.Migrations
+{
+  internal sealed class Configuration : DbMigrationsConfiguration<BjContext>
   {
     public Configuration()
     {
@@ -13,7 +10,7 @@ namespace BlackJack.Core.Migrations
       AutomaticMigrationDataLossAllowed = true;
     }
 
-    protected override void Seed(BlackJack.Core.BjContext context)
+    protected override void Seed(BjContext context)
     {
       //  This method will be called after migrating to the latest version.
 

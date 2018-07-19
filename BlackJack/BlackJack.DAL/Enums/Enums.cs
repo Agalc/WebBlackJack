@@ -1,4 +1,4 @@
-﻿namespace BlackJack.Core.Enums
+﻿namespace BlackJack.DAL.Enums
 {
   public enum PlayerType
   {

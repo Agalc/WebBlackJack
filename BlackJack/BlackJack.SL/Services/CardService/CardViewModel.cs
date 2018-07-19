@@ -1,6 +1,6 @@
-﻿using BlackJack.Core.Enums;
+﻿using BlackJack.DAL.Enums;
 
-namespace BlackJack.Core.Services.CardService
+namespace BlackJack.SL.Services.CardService
 {
   public class CardViewModel
   {

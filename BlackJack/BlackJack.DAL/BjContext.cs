@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using BlackJack.Core.Enteties;
+using BlackJack.DAL.Enteties;
 
-namespace BlackJack.Core
+namespace BlackJack.DAL
 {
   public class BjContext : DbContext
   {

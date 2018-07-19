@@ -1,8 +1,6 @@
 ﻿using System;
-using BlackJack.Core.Repositories;
-using BlackJack.Core.Enums;
 
-namespace BlackJack.Core.Interfaces
+namespace BlackJack.DAL.Interfaces
 {
   public interface IUnitOfWork : IDisposable
   {

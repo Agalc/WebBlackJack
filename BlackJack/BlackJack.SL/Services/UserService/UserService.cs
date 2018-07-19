@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
-using BlackJack.Core.Enteties;
-using BlackJack.Core.Enums;
-using BlackJack.Core.Infrastructure;
-using BlackJack.Core.Interfaces;
-using BlackJack.Core.Services.CardService;
+using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Enums;
+using BlackJack.DAL.Interfaces;
+using BlackJack.SL.Infrastructure;
+using BlackJack.SL.Services.CardService;
 
-namespace BlackJack.Core.Services.UserService
+namespace BlackJack.SL.Services.UserService
 {
   public class UserService : IUserService
   {

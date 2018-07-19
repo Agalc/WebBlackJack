@@ -7,8 +7,8 @@
     <ProjectGuid>{C753C9A6-973B-4292-A98C-ADE82E74A451}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BlackJack.Core</RootNamespace>
-    <AssemblyName>BlackJack.Core</AssemblyName>
+    <RootNamespace>BlackJack.DAL</RootNamespace>
+    <AssemblyName>BlackJack.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -61,7 +61,6 @@
     <Compile Include="Enteties\Round.cs" />
     <Compile Include="Enteties\User.cs" />
     <Compile Include="Enums\Enums.cs" />
-    <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Migrations\201807171844345_DatabaseSetup.cs" />
     <Compile Include="Migrations\201807171844345_DatabaseSetup.Designer.cs">
       <DependentUpon>201807171844345_DatabaseSetup.cs</DependentUpon>
@@ -92,20 +91,6 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoundRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Services\CardService\CardConverter.cs" />
-    <Compile Include="Services\CardService\CardService.cs" />
-    <Compile Include="Services\CardService\CardViewModel.cs" />
-    <Compile Include="Services\CardService\ICardService.cs" />
-    <Compile Include="Logic\Deck.cs" />
-    <Compile Include="Logic\SingleDeck.cs" />
-    <Compile Include="Logic\GameLogic.cs" />
-    <Compile Include="Services\GameService\GameService.cs" />
-    <Compile Include="Services\GameService\GameViewModel.cs" />
-    <Compile Include="Services\GameService\IGameService.cs" />
-    <Compile Include="Services\GameService\RoundViewModel.cs" />
-    <Compile Include="Services\UserService\IUserService.cs" />
-    <Compile Include="Services\UserService\UserService.cs" />
-    <Compile Include="Services\UserService\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807171844345_DatabaseSetup.resx">

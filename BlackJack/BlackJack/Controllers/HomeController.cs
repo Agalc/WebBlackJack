@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BlackJack.Core;
-using BlackJack.Core.Enteties;
-using BlackJack.Core.Enums;
-using BlackJack.Core.Infrastructure;
-using BlackJack.Core.Interfaces;
-using BlackJack.Core.Repositories;
-using BlackJack.Core.Services.GameService;
-using BlackJack.Core.Services.UserService;
+using BlackJack.DAL;
+using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Enums;
+using BlackJack.DAL.Interfaces;
+using BlackJack.DAL.Repositories;
+using BlackJack.SL.Infrastructure;
+using BlackJack.SL.Services.GameService;
+using BlackJack.SL.Services.UserService;
 
 namespace BlackJack.Controllers
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlackJack.Core.Services.CardService;
+using BlackJack.SL.Services.CardService;
 
-namespace BlackJack.Core.Logic
+namespace BlackJack.SL.Logic
 {
   public abstract class Deck
   {

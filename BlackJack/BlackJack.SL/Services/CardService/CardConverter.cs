@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
-using BlackJack.Core.Enteties;
+using BlackJack.DAL.Enteties;
 
-namespace BlackJack.Core.Services.CardService
+namespace BlackJack.SL.Services.CardService
 {
   public class CardConverter
   {

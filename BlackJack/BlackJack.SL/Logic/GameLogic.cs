@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enums;
-using BlackJack.Core.Services.CardService;
-using BlackJack.Core.Services.UserService;
+using BlackJack.DAL.Enums;
+using BlackJack.SL.Services.CardService;
+using BlackJack.SL.Services.UserService;
 
-namespace BlackJack.Core.Logic
+namespace BlackJack.SL.Logic
 {
   internal static class GameLogic
   {

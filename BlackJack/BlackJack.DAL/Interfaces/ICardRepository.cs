@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enteties;
+using BlackJack.DAL.Enteties;
 
-namespace BlackJack.Core.Interfaces
+namespace BlackJack.DAL.Interfaces
 {
   public interface ICardRepository:IRepository<Card>
   {

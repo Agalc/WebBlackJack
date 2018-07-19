@@ -91,9 +91,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BlackJack.DAL\BlackJack.Core.csproj">
+    <ProjectReference Include="..\BlackJack.DAL\BlackJack.DAL.csproj">
       <Project>{c753c9a6-973b-4292-a98c-ade82e74a451}</Project>
-      <Name>BlackJack.Core</Name>
+      <Name>BlackJack.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\BlackJack\BlackJack.WEB.csproj">
       <Project>{CC0B4AD6-EB32-42F4-824A-ED9F795422FA}</Project>

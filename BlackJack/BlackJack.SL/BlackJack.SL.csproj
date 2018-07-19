@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -39,6 +42,11 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,22 +55,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Infrastructure\ValidationException.cs" />
+    <Compile Include="Logic\Deck.cs" />
+    <Compile Include="Logic\GameLogic.cs" />
+    <Compile Include="Logic\SingleDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CardService\CardConverter.cs" />
+    <Compile Include="Services\CardService\CardService.cs" />
+    <Compile Include="Services\CardService\CardViewModel.cs" />
+    <Compile Include="Services\CardService\ICardService.cs" />
+    <Compile Include="Services\GameService\GameService.cs" />
+    <Compile Include="Services\GameService\GameViewModel.cs" />
+    <Compile Include="Services\GameService\IGameService.cs" />
+    <Compile Include="Services\GameService\RoundViewModel.cs" />
+    <Compile Include="Services\UserService\IUserService.cs" />
+    <Compile Include="Services\UserService\UserService.cs" />
+    <Compile Include="Services\UserService\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlackJack.DAL\BlackJack.DAL.csproj">
       <Project>{c753c9a6-973b-4292-a98c-ade82e74a451}</Project>
       <Name>BlackJack.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BlackJack\BlackJack.WEB.csproj">
-      <Project>{cc0b4ad6-eb32-42f4-824a-ed9f795422fa}</Project>
-      <Name>BlackJack.WEB</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

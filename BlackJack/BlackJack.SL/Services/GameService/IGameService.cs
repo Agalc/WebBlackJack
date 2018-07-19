@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BlackJack.Core.Services.GameService
+namespace BlackJack.SL.Services.GameService
 {
   public interface IGameService
   {

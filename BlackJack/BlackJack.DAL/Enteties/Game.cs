@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BlackJack.Core.Enteties
+namespace BlackJack.DAL.Enteties
 {
   public class Game
   {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BlackJack.Core.Interfaces;
+using BlackJack.DAL.Interfaces;
 
-namespace BlackJack.Core.Repositories
+namespace BlackJack.DAL.Repositories
 {
   public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
   {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
-using BlackJack.Core.Enteties;
-using BlackJack.Core.Infrastructure;
-using BlackJack.Core.Interfaces;
+using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Interfaces;
+using BlackJack.SL.Infrastructure;
 
-namespace BlackJack.Core.Services.CardService
+namespace BlackJack.SL.Services.CardService
 {
   public class CardService : ICardService
   {

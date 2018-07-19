@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BlackJack.Core.Enteties;
-using BlackJack.Core.Interfaces;
+using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Interfaces;
 
-namespace BlackJack.Core.Repositories
+namespace BlackJack.DAL.Repositories
 {
   public class UserRepository : Repository<User>, IUserRepository
   {

@@ -1,7 +1,7 @@
 ﻿using System;
-using BlackJack.Core.Interfaces;
+using BlackJack.DAL.Interfaces;
 
-namespace BlackJack.Core.Repositories
+namespace BlackJack.DAL.Repositories
 {
   public class UnitOfWork : IUnitOfWork
   {

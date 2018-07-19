@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using BlackJack.Core.Enteties;
-using BlackJack.Core.Infrastructure;
-using BlackJack.Core.Interfaces;
-using BlackJack.Core.Logic;
-using BlackJack.Core.Services.CardService;
+using BlackJack.DAL.Enteties;
+using BlackJack.DAL.Interfaces;
+using BlackJack.SL.Infrastructure;
+using BlackJack.SL.Logic;
+using BlackJack.SL.Services.CardService;
 
-namespace BlackJack.Core.Services.GameService
+namespace BlackJack.SL.Services.GameService
 {
   public class GameService : IGameService
   {

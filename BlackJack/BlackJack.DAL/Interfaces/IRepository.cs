@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BlackJack.Core.Interfaces
+namespace BlackJack.DAL.Interfaces
 {
   public interface IRepository<TEntity> where TEntity : class
   {

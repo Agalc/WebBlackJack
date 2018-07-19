@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlackJack.Core.Services.GameService
+namespace BlackJack.SL.Services.GameService
 {
   public class GameViewModel
   {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlackJack.Core.Enums;
-using BlackJack.Core.Services.CardService;
+using BlackJack.DAL.Enums;
+using BlackJack.SL.Services.CardService;
 
-namespace BlackJack.Core.Logic
+namespace BlackJack.SL.Logic
 {
   public class SingleDeck : Deck
   {

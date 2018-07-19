@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enums;
+using BlackJack.DAL.Enums;
 
-namespace BlackJack.Core.Services.UserService
+namespace BlackJack.SL.Services.UserService
 {
   public interface IUserService
   {

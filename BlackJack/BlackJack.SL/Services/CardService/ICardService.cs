@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enteties;
+using BlackJack.DAL.Enteties;
 
-namespace BlackJack.Core.Services.CardService
+namespace BlackJack.SL.Services.CardService
 {
   public interface ICardService
   {

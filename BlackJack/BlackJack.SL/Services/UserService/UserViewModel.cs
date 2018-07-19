@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using BlackJack.Core.Enums;
-using BlackJack.Core.Services.CardService;
-using BlackJack.Core.Services.GameService;
+using BlackJack.DAL.Enums;
+using BlackJack.SL.Services.CardService;
+using BlackJack.SL.Services.GameService;
 
-namespace BlackJack.Core.Services.UserService
+namespace BlackJack.SL.Services.UserService
 {
   public class UserViewModel
   {

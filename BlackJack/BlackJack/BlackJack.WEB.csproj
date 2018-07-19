@@ -214,9 +214,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BlackJack.DAL\BlackJack.Core.csproj">
+    <ProjectReference Include="..\BlackJack.DAL\BlackJack.DAL.csproj">
       <Project>{c753c9a6-973b-4292-a98c-ade82e74a451}</Project>
-      <Name>BlackJack.Core</Name>
+      <Name>BlackJack.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlackJack.SL\BlackJack.SL.csproj">
+      <Project>{40053d5a-4f04-41f9-aaba-aaea3a782909}</Project>
+      <Name>BlackJack.SL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
