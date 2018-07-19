@@ -104,23 +104,6 @@ namespace BlackJack.Core.Services.UserService
       return config.CreateMapper().Map<IEnumerable<User>, List<UserViewModel>>(_database.Users.GetAll());
     }
 
-    //GameLogic
-    public void PutCardInHand(CardViewModel card, UserViewModel user)//Добавить карту в руку
-    {
-      user.Cards.Add(card);//Добавить карту в руку
-      //Если добавляем туз и получается перебор, то туз будет стоить 1 очко
-      if (card.Face == Face.Ace && user.Score + 11 > 21)
-      {
-        user.Cards[user.Cards.Count - 1].Value = 1;
-        user.Score += 1;
-      }
-      //Иначе просто добавляем значение к счету
-      else
-      {
-        user.Score += card.Value;
-      }
-    }
-
     public void Dispose()
     {
       _database.Dispose();

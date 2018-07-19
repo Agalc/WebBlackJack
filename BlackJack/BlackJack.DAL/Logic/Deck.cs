@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlackJack.Core.Interfaces;
 using BlackJack.Core.Services.CardService;
 
-
-namespace BlackJack.Core.Services.DeckService
+namespace BlackJack.Core.Logic
 {
-  public abstract class DeckService
+  public abstract class Deck
   {
-    protected static IUnitOfWork _unitOfWork;
     protected readonly List<CardViewModel> _cards;
-    public static byte  CardCount { private set; get; }
+    public static byte CardCount { private set; get; }
 
-    protected DeckService(IUnitOfWork unitOfWork)
+    protected Deck(List<CardViewModel> cards)
     {
-      _unitOfWork = unitOfWork;
-      _cards = CardConverter.ConvertCardToCardVm(_unitOfWork.Cards.GetAll().ToList());
+      _cards = cards;
       CreateDeck();
     }
 

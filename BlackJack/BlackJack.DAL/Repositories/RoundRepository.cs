@@ -1,4 +1,5 @@
 ﻿using BlackJack.Core.Enteties;
+using BlackJack.Core.Interfaces;
 
 namespace BlackJack.Core.Repositories
 {

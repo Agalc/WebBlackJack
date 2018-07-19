@@ -1,27 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
-using BlackJack.Core.Interfaces;
 using BlackJack.Core.Services.CardService;
 
-namespace BlackJack.Core.Services.DeckService
+namespace BlackJack.Core.Logic
 {
-  public class SingleDeckService : DeckService
+  public class SingleDeck : Deck
   {
-    public SingleDeckService(IUnitOfWork unitOfWork) :
-      base(unitOfWork)
+    public SingleDeck(List<CardViewModel> cards) :
+      base(cards)
     { }
-
-    private void FillTableWithCards(List<CardViewModel> cardsViewModel)
-    {
-      List<Card> cards = CardConverter.ConvertCardVmToCard(cardsViewModel);
-      foreach (var c in cards)
-      {
-        _unitOfWork.Cards.Add(c);
-        _unitOfWork.Save();
-      }
-    }
 
     protected override void CreateDeck() //Создание колоды
     {

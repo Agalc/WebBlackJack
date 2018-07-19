@@ -3,12 +3,31 @@ using AutoMapper;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Infrastructure;
 using BlackJack.Core.Interfaces;
+using BlackJack.Core.Logic;
 
 namespace BlackJack.Core.Services.GameService
 {
-  class GameService:IGameService
+  public class GameService : IGameService
   {
     private readonly IUnitOfWork _database;
+    
+    //public static void Play()//ход игры
+    //{
+    //  //Регистрация и добавление ботов
+    //  Setup();
+    //  //Раздача
+    //  PlaceCards(deck);
+    //  _printer.Print(_users[0].ToString());
+    //  //Добор карт
+    //  foreach (var u in _users)
+    //    u.DecideWhetherTakeCard(deck);
+    //  //Вывод карт каждого игрока
+    //  PrintStats();
+
+    //  SumUp();//Итог матча
+    public void StartTheGame()
+    {
+    }
 
     public GameService(IUnitOfWork unitOfWork) => _database = unitOfWork;
 
@@ -28,7 +47,7 @@ namespace BlackJack.Core.Services.GameService
       _database.Save();
     }
 
-    public void UpdateGame(int? id,GameViewModel editedGame)
+    public void UpdateGame(int? id, GameViewModel editedGame)
     {
       if (id == null)
       {
@@ -43,7 +62,7 @@ namespace BlackJack.Core.Services.GameService
       wantedGame = new Game
       {
         Id = editedGame.Id,
-        DateTime= editedGame.DateTime
+        DateTime = editedGame.DateTime
       };
       _database.Games.Edit((int)id, wantedGame);
       _database.Save();

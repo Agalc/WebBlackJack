@@ -1,6 +1,6 @@
 ﻿using System;
 using BlackJack.Core.Repositories;
-using BlackJack.Core.Enteties;
+using BlackJack.Core.Enums;
 
 namespace BlackJack.Core.Interfaces
 {

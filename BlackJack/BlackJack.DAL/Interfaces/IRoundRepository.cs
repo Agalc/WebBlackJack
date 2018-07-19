@@ -1,7 +1,6 @@
 ﻿using BlackJack.Core.Enteties;
-using BlackJack.Core.Interfaces;
 
-namespace BlackJack.Core.Repositories
+namespace BlackJack.Core.Interfaces
 {
   public interface IRoundRepository : IRepository<Round>
   {

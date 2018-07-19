@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlackJack.Core.Enums;
 
 namespace BlackJack.Core.Enteties
 {

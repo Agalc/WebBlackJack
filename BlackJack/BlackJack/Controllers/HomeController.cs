@@ -1,10 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using BlackJack.Core;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
 using BlackJack.Core.Interfaces;
+using BlackJack.Core.Logic;
 using BlackJack.Core.Repositories;
-using BlackJack.Core.Services.DeckService;
+using BlackJack.Core.Services.CardService;
 using BlackJack.Core.Services.UserService;
 
 namespace BlackJack.Controllers
@@ -50,7 +52,7 @@ namespace BlackJack.Controllers
 
     public ActionResult Game()
     {
-      new SingleDeckService(_unitOfWork);
+      new SingleDeck(CardConverter.ConvertCardToCardVm(_unitOfWork.Cards.GetAll().ToList()));
 
       return View();
     }
