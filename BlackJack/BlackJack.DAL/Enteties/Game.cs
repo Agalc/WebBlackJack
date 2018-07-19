@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BlackJack.Core.Enteties
 {
@@ -8,7 +9,11 @@ namespace BlackJack.Core.Enteties
     public DateTime? DateTime { set; get; }
 
     //FK
-    public int? RoundId { set; get; }
-    public Round Round { set; get; }
+    public List<Round> Rounds { set; get; }
+
+    public Game()
+    {
+      Rounds = new List<Round>();
+    }
   }
 }

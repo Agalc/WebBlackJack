@@ -15,7 +15,5 @@ namespace BlackJack.Core
       : base(connectionString)
     {
     }
-
-    public System.Data.Entity.DbSet<BlackJack.Core.Services.UserService.UserViewModel> UserViewModels { get; set; }
   }
 }

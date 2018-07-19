@@ -66,6 +66,18 @@
     <Compile Include="Migrations\201807171844345_DatabaseSetup.Designer.cs">
       <DependentUpon>201807171844345_DatabaseSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807191345114_thisIsntWorking.cs" />
+    <Compile Include="Migrations\201807191345114_thisIsntWorking.Designer.cs">
+      <DependentUpon>201807191345114_thisIsntWorking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191408103_newInit.cs" />
+    <Compile Include="Migrations\201807191408103_newInit.Designer.cs">
+      <DependentUpon>201807191408103_newInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191412175_newInit2.cs" />
+    <Compile Include="Migrations\201807191412175_newInit2.Designer.cs">
+      <DependentUpon>201807191412175_newInit2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Interfaces\ICardRepository.cs" />
@@ -98,6 +110,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807171844345_DatabaseSetup.resx">
       <DependentUpon>201807171844345_DatabaseSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191345114_thisIsntWorking.resx">
+      <DependentUpon>201807191345114_thisIsntWorking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191408103_newInit.resx">
+      <DependentUpon>201807191408103_newInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191412175_newInit2.resx">
+      <DependentUpon>201807191412175_newInit2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

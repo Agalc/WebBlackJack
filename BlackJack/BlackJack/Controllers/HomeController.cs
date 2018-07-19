@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using BlackJack.Core;
 using BlackJack.Core.Enteties;
 using BlackJack.Core.Enums;
 using BlackJack.Core.Infrastructure;
 using BlackJack.Core.Interfaces;
-using BlackJack.Core.Logic;
 using BlackJack.Core.Repositories;
-using BlackJack.Core.Services.CardService;
 using BlackJack.Core.Services.GameService;
 using BlackJack.Core.Services.UserService;
 
@@ -21,6 +18,11 @@ namespace BlackJack.Controllers
     static readonly BjContext _context = new BjContext(ConnectionString);
     private readonly IUnitOfWork _unitOfWork;
 
+    public HomeController(IUnitOfWork unitOfWork)
+    {
+      _unitOfWork = unitOfWork;
+    }
+
     public HomeController()
     {
       _unitOfWork = new UnitOfWork(_context);
@@ -28,6 +30,7 @@ namespace BlackJack.Controllers
 
     public ActionResult Index()
     {
+      //var model = _unitOfWork.Users.GetAll();
       return View();
     }
 
@@ -49,7 +52,6 @@ namespace BlackJack.Controllers
     {
       IUserService userService = new UserService(_unitOfWork);
       userService.CreateUser(newUser, PlayerType.Player);
-      _unitOfWork.Save();
       return View();
     }
 
@@ -73,9 +75,9 @@ namespace BlackJack.Controllers
         gameId = 1;
         newGame.Id = gameId;
       }
-      
+
       //gameService.CreateGame(newGame);
-      
+
       return View();
     }
 

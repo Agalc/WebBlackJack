@@ -9,12 +9,13 @@ namespace BlackJack.Core.Enteties
     public int? WinnerId { set; get; }
 
     //FK
+    public int? GameId { set; get; }
+    public Game Game { set; get; }
     public List<User> Users { set; get; }
-    public List<Game> Games { set; get; }
+
     public Round()
     {
       Users = new List<User>();
-      Games = new List<Game>();
     }   
   }
 }
